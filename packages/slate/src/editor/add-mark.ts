@@ -28,6 +28,7 @@ export const addMark: EditorInterface['addMark'] = (editor, key, value) => {
       }
     }
     if (expandedSelection || markAcceptingVoidSelected) {
+      // 加粗 blod true
       Transforms.setNodes(
         editor,
         { [key]: value },

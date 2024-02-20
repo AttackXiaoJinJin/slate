@@ -90,7 +90,7 @@ export const setNodes: NodeTransforms['setNodes'] = (
       }
 
       let hasChanges = false
-
+      console.log(props,'props93')
       for (const k in props) {
         if (k === 'children' || k === 'text') {
           continue

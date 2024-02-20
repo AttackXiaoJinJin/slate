@@ -179,6 +179,9 @@ export const NodeTransforms: NodeTransforms = {
     editor.removeNodes(options)
   },
   setNodes(editor, props, options) {
+    console.log(props,options,'options182')
+    // props:{bold: true}
+    // options: {split: true, voids: true, match: ƒ}
     editor.setNodes(props, options)
   },
   splitNodes(editor, options) {
