@@ -1202,6 +1202,7 @@ export const Editable = (props: EditableProps) => {
             )}
             onCopy={useCallback(
               (event: React.ClipboardEvent<HTMLDivElement>) => {
+                console.log('onCopy','onCopy1205')
                 if (
                   ReactEditor.hasSelectableTarget(editor, event.target) &&
                   !isEventHandled(event, attributes.onCopy) &&
@@ -1663,6 +1664,12 @@ export const Editable = (props: EditableProps) => {
             )}
             onPaste={useCallback(
               (event: React.ClipboardEvent<HTMLDivElement>) => {
+                console.log(
+                  event.clipboardData.getData('text/html'),
+                  event.clipboardData.getData('text/plain'),
+                  event.clipboardData.getData('text/rtf'),
+
+                  'onPaste1666')
                 if (
                   !readOnly &&
                   ReactEditor.hasEditableTarget(editor, event.target) &&
@@ -1681,6 +1688,11 @@ export const Editable = (props: EditableProps) => {
                     IS_WEBKIT
                   ) {
                     event.preventDefault()
+                    console.log(
+                      event.clipboardData,
+                      event.clipboardData.getData('text/plain'),
+                      event.clipboardData.getData('text/html'),
+                      'clipboardData1684')
                     ReactEditor.insertData(editor, event.clipboardData)
                   }
                 }
