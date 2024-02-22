@@ -51,6 +51,7 @@ export const HistoryEditor = {
    */
 
   redo(editor: HistoryEditor): void {
+    console.log('redo','redo54')
     editor.redo()
   },
 
@@ -59,6 +60,7 @@ export const HistoryEditor = {
    */
 
   undo(editor: HistoryEditor): void {
+    console.log('undo','undo63')
     editor.undo()
   },
 

@@ -130,6 +130,8 @@ export const insertNodes: NodeTransforms['insertNodes'] = (
           }
         },
         () => {
+          console.log(newDirtyPaths,'newDirtyPaths133')
+
           updateDirtyPaths(editor, newDirtyPaths, p => {
             let newPath: Path | null = p
             for (const op of batchedOps) {

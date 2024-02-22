@@ -469,6 +469,7 @@ export const Editable = (props: EditableProps) => {
   // is required because React's `beforeinput` is fake and never really attaches
   // to the real event sadly. (2019/11/01)
   // https://github.com/facebook/react/issues/11211
+  /* react合成事件的onBeforeInput更像是onBeforeInsert，react只关心文字的插入，并不关心输入的增删和format */
   const onDOMBeforeInput = useCallback(
     (event: InputEvent) => {
       onUserInput()
@@ -501,7 +502,7 @@ export const Editable = (props: EditableProps) => {
         if (isCompositionChange && ReactEditor.isComposing(editor)) {
           return
         }
-
+        console.log(type,data,'data505')
         let native = false
         if (
           type === 'insertText' &&
@@ -518,6 +519,7 @@ export const Editable = (props: EditableProps) => {
           // right after it (the start of the next node).
           selection.anchor.offset !== 0
         ) {
+          console.log('insertText','insertText522')
           native = true
 
           // Skip native if there are marks, as
@@ -609,6 +611,7 @@ export const Editable = (props: EditableProps) => {
 
         // COMPAT: If the selection is expanded, even if the command seems like
         // a delete forward/backward command it should delete the selection.
+        /* 框选删除 */
         if (
           selection &&
           Range.isExpanded(selection) &&
@@ -710,6 +713,7 @@ export const Editable = (props: EditableProps) => {
               // Only insertText operations use the native functionality, for now.
               // Potentially expand to single character deletes, as well.
               if (native) {
+                // 输入文字走这里
                 deferredOperations.current.push(() =>
                   Editor.insertText(editor, data)
                 )

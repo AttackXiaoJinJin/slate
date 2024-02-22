@@ -56,7 +56,7 @@ export interface TextInterface {
    */
   decorations: (node: Text, decorations: Range[]) => Text[]
 }
-
+/* text文本节点 */
 // eslint-disable-next-line no-redeclare
 export const Text: TextInterface = {
   equals(text: Text, another: Text, options: TextEqualsOptions = {}): boolean {

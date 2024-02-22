@@ -208,6 +208,7 @@ export interface NodeInterface {
 
 const IS_NODE_LIST_CACHE = new WeakMap<any[], boolean>()
 
+/* node对象 */
 // eslint-disable-next-line no-redeclare
 export const Node: NodeInterface = {
   ancestor(root: Node, path: Path): Ancestor {

@@ -63,7 +63,7 @@ const isElement = (value: any): value is Element => {
     !Editor.isEditor(value)
   )
 }
-
+/* Element对象 */
 // eslint-disable-next-line no-redeclare
 export const Element: ElementInterface = {
   isAncestor(value: any): value is Ancestor {

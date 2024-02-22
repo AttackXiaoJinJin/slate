@@ -57,7 +57,7 @@ export interface PointInterface {
     options?: PointTransformOptions
   ) => Point | null
 }
-
+/* point表示节点位置 */
 // eslint-disable-next-line no-redeclare
 export const Point: PointInterface = {
   compare(point: Point, another: Point): -1 | 0 | 1 {

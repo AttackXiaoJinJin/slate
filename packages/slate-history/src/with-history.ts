@@ -20,7 +20,7 @@ export const withHistory = <T extends Editor>(editor: T) => {
   e.redo = () => {
     const { history } = e
     const { redos } = history
-
+    console.log(redos,'redos23')
     if (redos.length > 0) {
       const batch = redos[redos.length - 1]
 
@@ -44,7 +44,7 @@ export const withHistory = <T extends Editor>(editor: T) => {
   e.undo = () => {
     const { history } = e
     const { undos } = history
-
+    console.log(undos,'undos47')
     if (undos.length > 0) {
       const batch = undos[undos.length - 1]
 

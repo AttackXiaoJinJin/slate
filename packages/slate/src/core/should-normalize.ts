@@ -5,6 +5,7 @@ export const shouldNormalize: WithEditorFirstArg<Editor['shouldNormalize']> = (
   editor,
   { iteration, initialDirtyPathsLength }
 ) => {
+  // 限制最大normalize次数，防止无限循环
   const maxIterations = initialDirtyPathsLength * 42 // HACK: better way?
 
   if (iteration > maxIterations) {

@@ -27,6 +27,7 @@ export const apply: WithEditorFirstArg<Editor['apply']> = (editor, op) => {
     const transform = Path.operationCanTransformPath(op)
       ? (p: Path) => Path.transform(p, op)
       : undefined
+    console.log(editor.getDirtyPaths(op),'updateDirtyPaths30')
     updateDirtyPaths(editor, editor.getDirtyPaths(op), transform)
   }
 
@@ -45,6 +46,7 @@ export const apply: WithEditorFirstArg<Editor['apply']> = (editor, op) => {
     FLUSHING.set(editor, true)
 
     Promise.resolve().then(() => {
+      console.log('promise微任务','apply49')
       FLUSHING.set(editor, false)
       editor.onChange({ operation: op })
       editor.operations = []

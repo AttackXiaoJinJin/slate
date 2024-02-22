@@ -9,6 +9,7 @@ export const normalize: EditorInterface['normalize'] = (
   options = {}
 ) => {
   const { force = false, operation } = options
+  // 获取改动过的节点
   const getDirtyPaths = (editor: Editor) => {
     return DIRTY_PATHS.get(editor) || []
   }
@@ -45,6 +46,7 @@ export const normalize: EditorInterface['normalize'] = (
       editor.normalizeNode() does fix this, but some normalization fixes also require it to work.
       Running an initial pass avoids the catch-22 race condition.
     */
+    // 对改动的节点进行normalize规范化格式
     for (const dirtyPath of getDirtyPaths(editor)) {
       if (Node.has(editor, dirtyPath)) {
         const entry = Editor.node(editor, dirtyPath)
