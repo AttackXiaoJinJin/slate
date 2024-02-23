@@ -30,13 +30,15 @@ export const apply: WithEditorFirstArg<Editor['apply']> = (editor, op) => {
     console.log(editor.getDirtyPaths(op),'updateDirtyPaths30')
     updateDirtyPaths(editor, editor.getDirtyPaths(op), transform)
   }
-
+  console.log(editor.children,'editor33')
+  /* 根据用户输入更新slate value */
   Transforms.transform(editor, op)
+  console.log(editor.children,'editor35')
   editor.operations.push(op)
   Editor.normalize(editor, {
     operation: op,
   })
-
+  console.log(editor.children,'editor40')
   // Clear any formats applied to the cursor if the selection changes.
   if (op.type === 'set_selection') {
     editor.marks = null

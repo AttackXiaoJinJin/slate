@@ -99,6 +99,7 @@ export const TextTransforms: TextTransforms = {
       }
 
       const { path, offset } = at
+      console.log(text,path,offset,'insertText102')
       if (text.length > 0)
         editor.apply({ type: 'insert_text', path, offset, text })
     })

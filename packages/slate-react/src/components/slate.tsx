@@ -69,7 +69,7 @@ export const Slate = (props: {
         default:
           onValueChange?.(editor.children)
       }
-
+      console.log(editor.children,options,'children72')
       setContext(prevContext => ({
         v: prevContext.v + 1,
         editor,

@@ -16,6 +16,7 @@ export const insertText: EditorInterface['insertText'] = (
         voids: options.voids,
       })
     } else {
+      console.log(text,options,'options19')
       Transforms.insertText(editor, text, options)
     }
 
